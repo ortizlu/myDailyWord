@@ -62,14 +62,10 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a href="">L &amp; L</a>
+          <a href="">My Daily Word</a>
         </Link>
       </Logo>
       <Nav />
-    </div>
-
-    <div className="sub-bar">
-      <p>Search</p>
     </div>
 
     <div>Cart</div>
