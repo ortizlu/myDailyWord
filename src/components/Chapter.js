@@ -2,9 +2,13 @@ import React from "react"
 
 export default function Chapter({ data }) {
   const chapters = data.allBibleKjvJson.edges[0].node.chapters
-  const path = window.location.pathname.split("/")
-  const currentChapter = path[path.length - 1]
-  const chapter = chapters[currentChapter - 1]
+  let chapter = [{verse: '1', text: ''}]
+  if (window) {
+    const path = window.location.pathname.split("/")
+    const currentChapter = path[path.length - 1]
+    chapter = chapters[currentChapter - 1]
+  }
+
   return (
     <div>
       {chapter.verses.map(verse => (
