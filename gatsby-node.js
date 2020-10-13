@@ -24,7 +24,7 @@ exports.createPages = async function ({ actions, graphql }) {
       path: `/read/${node.book.replace(/\s/g, "")}`,
       component: path.resolve(`./src/components/Chapters.js`),
       context: {
-        book: node.book.replace(/\s/g, ""),
+        book: node.book,
       },
     })
 
@@ -33,7 +33,7 @@ exports.createPages = async function ({ actions, graphql }) {
         path: `/read/${node.book.replace(/\s/g, "")}/${index + 1}`,
         component: path.resolve(`./src/components/Chapter.js`),
         context: {
-          book: node.book.replace(/\s/g, ""),
+          book: node.book,
           chapter: index + 1,
         },
       })
