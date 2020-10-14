@@ -1,13 +1,16 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 
 export default function Chapter({ data }) {
-  const chapters = data.allBibleKjvJson.edges[0].node.chapters
-  let chapter = [{verse: '1', text: ''}]
-  if (window) {
+  const [chapter, setChapter] = useState({verses: []})
+
+  useEffect(() => {
+    // Update the document title using the browser API
     const path = window.location.pathname.split("/")
+    const chapters = data.allBibleKjvJson.edges[0].node.chapters
     const currentChapter = path[path.length - 1]
-    chapter = chapters[currentChapter - 1]
-  }
+    const chapter = chapters[currentChapter - 1]
+    setChapter(chapter)
+  }, []);
 
   return (
     <div>
